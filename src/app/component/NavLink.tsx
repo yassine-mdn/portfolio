@@ -64,10 +64,12 @@ const NavLink = (props: NavLinkProps) => {
         <motion.div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
                     className={"relative items-start overflow-hidden flex flex-col"} initial={"rest"} animate={"hover"}>
             <motion.a className={cn(navLinkState({active: props.active, className: props.className}))} {...props}
-                      variants={navAnimation} animate={isHovered? "hover" : "rest"}/>
+                      variants={navAnimation} animate={isHovered ? "hover" : "rest"}
+            />
             <div className={"absolute top-0 left-0"}>
                 <motion.a className={cn(navLinkState({active: props.active, className: props.className}))} {...props}
-                          variants={navAnimationTwo} animate={isHovered? "hover" : "rest"}/>
+                          variants={navAnimationTwo} animate={isHovered ? "hover" : "rest"}
+                />
             </div>
         </motion.div>
     );
