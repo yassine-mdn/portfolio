@@ -4,7 +4,7 @@
 import * as React from 'react';
 import {useState} from 'react';
 import {cva, VariantProps} from "class-variance-authority";
-import {cn} from '../lib/utils';
+import {cn} from '@/lib/utils';
 import {HTMLMotionProps, motion, Variants} from 'motion/react';
 
 

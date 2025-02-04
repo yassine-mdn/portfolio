@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Header from "@/app/component/Header";
-import Nav from "@/app/component/Nav";
-import {NavLinkProps} from "@/app/types";
+import Header from "@/components/Header";
+import Nav from "@/components/Nav";
+import {NavLinkProps} from "src/types";
 import {getTranslations} from "next-intl/server";
 
 type Props = {

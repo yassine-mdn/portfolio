@@ -3,8 +3,8 @@
 
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-import {NavLink} from "@/app/component/NavLink";
-import {NavLinkProps} from "@/app/types";
+import {NavLink} from "@/components/NavLink";
+import {NavLinkProps} from "src/types";
 
 type Props = {
     links: NavLinkProps[];
