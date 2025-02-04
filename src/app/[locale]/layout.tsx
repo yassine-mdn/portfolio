@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
+import {Inter} from "next/font/google";
 import "../globals.css";
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
@@ -7,15 +7,8 @@ import {notFound} from 'next/navigation';
 import {routing} from "@/i18n/routing";
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const interFont = Inter({subsets: ["latin"]});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,7 +17,7 @@ export const metadata: Metadata = {
 
 type Props = {
     children: React.ReactNode;
-    params: { locale: string }
+    params: Promise<{ locale: string }>
 }
 
 export default async function RootLayout(props: Props) {
@@ -45,7 +38,7 @@ export default async function RootLayout(props: Props) {
   return (
       <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0`}
+        className={`${interFont.className} antialiased mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-neutral-400 font-normal`}
       >
       <NextIntlClientProvider messages={messages}>
           {props.children}
