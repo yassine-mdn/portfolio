@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
+import {withContentlayer} from "next-contentlayer2";
 
 const nextConfig: NextConfig = {
   /* config options here */
 };
 
-export default nextConfig;
+module.exports = withContentlayer(nextConfig)
