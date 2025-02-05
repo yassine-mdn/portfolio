@@ -1,8 +1,18 @@
-import * as React from "react"
 import {useMDXComponent} from "next-contentlayer2/hooks"
 
 import {cn} from "@/lib/utils"
 import {ComponentPropsWithoutRef} from "react";
+import Badge from "@/components/Badge";
+import {
+    AngularIcon,
+    DjangoIcon,
+    DockerIcon,
+    JavaIcon, PostgreSqlIcon,
+    PythonIcon,
+    ReactIcon,
+    SpringIcon,
+    TypeScriptIcon
+} from "redev-icons";
 
 const components = {
     h1: ({className, ...props}:ComponentPropsWithoutRef<"h1">) => (
@@ -101,6 +111,15 @@ const components = {
         <img className={cn("rounded-md border", className)} alt={alt} {...props} />
     ),
     hr: ({...props}) => <hr className="my-4 md:my-8" {...props} />,
+    Angular : () => <Badge icon={AngularIcon}>Angular</Badge>,
+    Spring:() => <Badge icon={SpringIcon}>Spring</Badge>,
+    Java:() => <Badge icon={JavaIcon}>Java</Badge>,
+    React: () => <Badge icon={ReactIcon}>React</Badge>,
+    Typescript: () => <Badge icon={TypeScriptIcon}>Typescript</Badge>,
+    Python: () => <Badge icon={PythonIcon}>Python</Badge>,
+    Django: () => <Badge icon={DjangoIcon}>Django</Badge>,
+    Docker: () => <Badge icon={DockerIcon}>Docker</Badge>,
+    Postgres: () => <Badge icon={PostgreSqlIcon}>PostgreSQL</Badge>
 
 }
 
