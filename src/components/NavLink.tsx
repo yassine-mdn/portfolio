@@ -13,8 +13,8 @@ const navLinkState = cva(
     {
         variants: {
             active: {
-                false: "text-gray-400",
-                true: "text-gray-200",
+                false: "text-neutral-400",
+                true: "text-neutral-200",
             }
         },
         defaultVariants: {
