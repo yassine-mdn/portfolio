@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {About, allAbouts} from 'contentlayer/generated'
-import { getLocale } from "next-intl/server";
+import {getLocale, getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {Mdx} from "@/components/MdRendrer";
+import SectionHeader from "@/components/SectionHeader";
 
-const AboutCard = async () => {
+const AboutSection = async () => {
 
     const locale = await getLocale();
 
@@ -16,12 +17,15 @@ const AboutCard = async () => {
         notFound()
     }
 
+    const t = await getTranslations("Layout");
+
 
     return (
-        <div id={"about"} className={"h-screen"}>
+        <div id={"about"}>
+            <SectionHeader title={t("about")}/>
             <Mdx code={about.body.code}/>
         </div>
     );
 };
 
-export default AboutCard;
+export default AboutSection;
