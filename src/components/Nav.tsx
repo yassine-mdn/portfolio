@@ -3,8 +3,8 @@
 
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-import {NavLink} from "@/app/component/NavLink";
-import {NavLinkProps} from "@/app/types";
+import {NavLink} from "@/components/NavLink";
+import {NavLinkProps} from "src/types";
 
 type Props = {
     links: NavLinkProps[];
@@ -58,7 +58,7 @@ const Nav = (props: Props) => {
                 {props.links.map((link: NavLinkProps, key: number) => (
                     <li key={key}>
                         <NavLink href={`#${link.href}`}
-                                 active={link.href === activeLink}
+                                 className={link.href === activeLink ? "text-neutral-200" : ""}
                                  onClick={(event) => goToLink(event, link.href)}>
                             {link.title}
                         </NavLink>
