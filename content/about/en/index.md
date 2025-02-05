@@ -3,10 +3,10 @@ title: About me
 date: 2025-02-24
 ---
 
-I am a **Junior Software Engineer** passionate about building scalable and high-performance applications. With a strong foundation in **Java, Spring, Python, and JavaScript**, I thrive on solving complex problems and delivering efficient, well-structured solutions.
+Hey, I'm **Yassine Mouddene**, and I'm a **Software Engineer** who loves building things that work seamlessly and efficiently. Whether it’s crafting high-performance backend systems or designing smooth user experiences, I’m always eager to dive into complex problems and find elegant solutions.
 
-I am particularly motivated by **clean architecture, performance optimization, and scalable system design**. I enjoy working with both **backend and frontend technologies**, ensuring seamless user experiences while maintaining robust, secure, and maintainable codebases.
+Specialized in working with <React /> <Angular /> <Typescript/> <Spring /> <Java /> <Django /> <Python /> 
 
-I am always eager to **learn new technologies, tackle challenging problems, and collaborate with teams that value innovation and growth**. My goal is to contribute to impactful projects while continuously improving as a software engineer.
+I’ve built everything from real-time monitoring tools to **machine learning** powered analytics. But beyond code, I enjoy the challenge of learning new things and pushing my skills forward.
 
-## Remove all GPT generated trash later on
+When I’m not coding, you’ll probably find me **hiking** in the mountains, deep into **reading** a book, listening to **music**, or just playing video games. 
