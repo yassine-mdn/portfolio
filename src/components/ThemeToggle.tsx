@@ -11,6 +11,11 @@ import {
     TooltipTrigger,
 } from "@/components/Tooltip"
 
+
+type Props = {
+    tooltip ?: string;
+};
+
 const properties = {
     dark: {
         r: 9,
@@ -35,10 +40,10 @@ const properties = {
     transition: { type: "spring", mass: 4, stiffness: 250, damping: 35 }
 } as const;
 
-export function ThemeToggle() {
+const ThemeToggle = (props: Props) =>{
     const {theme, setTheme} = useTheme()
-
-    const currentTheme = theme === "dark" || theme === "light" ? theme : "light";
+    console.log(theme)
+    const currentTheme = theme === "dark" || theme === "light" ? theme : "dark";
 
     const rotate = useMotionValue(properties[currentTheme].rotate);
     const r = useMotionValue(properties[currentTheme].r);
@@ -65,7 +70,7 @@ export function ThemeToggle() {
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger>
-                    <button className={"hover:text-foreground"}
+                    <div className={"hover:text-foreground flex items-center cursor-pointer"}
                             onClick={() => setTheme(theme === "system" || theme === "dark" ? "light" : "dark")}>
                         <motion.svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -101,10 +106,10 @@ export function ThemeToggle() {
                             </motion.g>
                         </motion.svg>
                         <span className="sr-only">Toggle theme</span>
-                    </button>
+                    </div>
                 </TooltipTrigger>
                 <TooltipContent>
-                    <span>change theme</span>
+                    <span>{props.tooltip ?? "Change Theme"}</span>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
@@ -112,3 +117,5 @@ export function ThemeToggle() {
 
     )
 }
+
+export default ThemeToggle;
