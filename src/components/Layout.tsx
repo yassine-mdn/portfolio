@@ -32,9 +32,10 @@ const Layout = async (props: Props) => {
 
     return (
         <div className="lg:flex lg:justify-between lg:gap-4">
-            <Header>
-                <Nav links={links}/>
-                <ThemeToggle />
+            <Header links={links}>
+                <div className="mt-auto">
+                    <ThemeToggle />
+                </div>
             </Header>
             {props.children}
         </div>
