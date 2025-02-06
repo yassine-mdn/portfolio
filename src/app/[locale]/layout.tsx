@@ -39,7 +39,7 @@ export default async function RootLayout(props: Props) {
   return (
       <html lang={locale} suppressHydrationWarning={true}>
       <body
-        className={`${interFont.className} antialiased mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-muted font-normal`}
+        className={`${interFont.className} antialiased bg-background mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-muted font-normal`}
       >
       <ThemeProvider
           attribute="class"
