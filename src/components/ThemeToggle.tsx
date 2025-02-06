@@ -2,61 +2,50 @@
 
 import * as React from "react"
 import {useTheme} from "next-themes"
-import {animate, motion, useMotionValue} from "framer-motion"
-import {useEffect} from "react";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/Tooltip"
+import {motion} from "framer-motion"
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger,} from "@/components/Tooltip"
 import {flushSync} from "react-dom";
+import {Variants} from "motion/react";
 
 
 type Props = {
     tooltip ?: string;
 };
 
-const properties = {
-    dark: {
-        r: 9,
-        rotate: 32,
-        innerCircleRadius: 9,
-        opacity: 0,
-        moonOpacity: 1,
-        scale: 1,
-    },
-    light: {
-        r: 5,
-        rotate: 90,
-        innerCircleRadius: 0,
-        opacity: 1,
-        moonOpacity: 0,
-        scale: 0.55,
-    },
-    transition: { type: "spring", mass: 4, stiffness: 250, damping: 35 }
-} as const;
 
 const ThemeToggle = (props: Props) =>{
     const {theme, setTheme} = useTheme()
-    console.log(theme)
-    const currentTheme = theme === "dark" || theme === "light" ? theme : "dark";
 
-    const rotate = useMotionValue(properties[currentTheme].rotate);
-    const r = useMotionValue(properties[currentTheme].r);
-    const innerCircleRadius = useMotionValue(properties[currentTheme].innerCircleRadius);
-    const opacity = useMotionValue(properties[currentTheme].opacity);
-    const moonOpacity = useMotionValue(properties[currentTheme].moonOpacity);
-    const moonScale = useMotionValue(properties[currentTheme].scale);
+    const transition = {type: "spring", mass: 4, stiffness: 1350, damping: 35}
 
-    useEffect(() => {
-        animate(rotate, properties[currentTheme].rotate, properties.transition);
-        animate(r, properties[currentTheme].r, properties.transition);
-        animate(innerCircleRadius, properties[currentTheme].innerCircleRadius, properties.transition);
-        animate(opacity, properties[currentTheme].opacity, properties.transition);
-        animate(moonOpacity,properties[currentTheme].moonOpacity, properties.transition);
-        animate(moonScale,properties[currentTheme].scale, properties.transition);
-    }, [currentTheme]);
+    const sunVariants: Variants = {
+        visible: {
+            opacity: 1,
+            rotate: 90,
+            transition: transition
+        },
+        hidden: {
+            opacity: 0,
+            rotate: 32,
+            transition: transition
+        }
+    }
+
+    const moonVariants: Variants = {
+        visible: {
+            opacity: 1,
+            rotate: 31,
+            fill: "none",
+            transition: transition
+        },
+        hidden: {
+            opacity: 0,
+            rotate: 0,
+            fill: "currentColor",
+            transition: transition
+        }
+    }
+
 
 
     const handleThemeToggle = async () => {
@@ -86,41 +75,52 @@ const ThemeToggle = (props: Props) =>{
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger>
-                    <div className={"hover:text-foreground flex items-center cursor-pointer"}
-                            onClick={() => handleThemeToggle()}>
-                        <motion.svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            style={{rotate}}
-                            transition={properties.transition}
-                        >
-                            <motion.mask id={"mask"}>
-                                <rect x="0" y="0" width="100%" height="100%" fill="white"/>
-                                <motion.circle cx="12" cy="4" r={innerCircleRadius} stroke="black" fill="black"/>
-                            </motion.mask>
-                            <motion.circle stroke="currentColor" cx="12" cy="12" r={r} mask="url(#mask)"
-                                           opacity={opacity}/>
-                            <motion.g style={{scale: moonScale}} opacity={moonOpacity}>
-                                <motion.path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                            </motion.g>
-                            <motion.g stroke="currentColor" style={{opacity}}>
-                                <motion.path d="M12 2v2"/>
-                                <motion.path d="M12 20v2"/>
-                                <motion.path d="m4.93 4.93 1.41 1.41"/>
-                                <motion.path d="m17.66 17.66 1.41 1.41"/>
-                                <motion.path d="M2 12h2"/>
-                                <motion.path d="M20 12h2"/>
-                                <motion.path d="m6.34 17.66-1.41 1.41"/>
-                                <motion.path d="m19.07 4.93-1.41 1.41"/>
-                            </motion.g>
-                        </motion.svg>
+                    <div className={"hover:text-foreground flex items-center cursor-pointer relative"}
+                         onClick={() => handleThemeToggle()}>
+                        {theme !== "dark" ? (
+                            <motion.svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                initial="hidden" animate="visible" exit="hidden"
+                                variants={sunVariants}
+                            >
+                                <circle stroke="currentColor" cx="12" cy="12" r={5}/>
+
+                                <g stroke="currentColor">
+                                    <path d="M12 2v2"/>
+                                    <path d="M12 20v2"/>
+                                    <path d="m4.93 4.93 1.41 1.41"/>
+                                    <path d="m17.66 17.66 1.41 1.41"/>
+                                    <path d="M2 12h2"/>
+                                    <path d="M20 12h2"/>
+                                    <path d="m6.34 17.66-1.41 1.41"/>
+                                    <path d="m19.07 4.93-1.41 1.41"/>
+                                </g>
+                            </motion.svg>
+                        ) : (
+                            <motion.svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                initial="hidden" animate="visible" exit="hidden"
+                                variants={moonVariants}
+                            >
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                            </motion.svg>
+                        )}
                         <span className="sr-only">Toggle theme</span>
                     </div>
                 </TooltipTrigger>
