@@ -43,7 +43,7 @@ export default async function RootLayout(props: Props) {
       >
       <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
       >
