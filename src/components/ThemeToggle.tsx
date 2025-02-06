@@ -10,6 +10,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/Tooltip"
+import {flushSync} from "react-dom";
 
 
 type Props = {
@@ -20,8 +21,6 @@ const properties = {
     dark: {
         r: 9,
         rotate: 32,
-        cx: 12,
-        cy: 4,
         innerCircleRadius: 9,
         opacity: 0,
         moonOpacity: 1,
@@ -30,8 +29,6 @@ const properties = {
     light: {
         r: 5,
         rotate: 90,
-        cx: 30,
-        cy: 0,
         innerCircleRadius: 0,
         opacity: 1,
         moonOpacity: 0,
@@ -47,8 +44,6 @@ const ThemeToggle = (props: Props) =>{
 
     const rotate = useMotionValue(properties[currentTheme].rotate);
     const r = useMotionValue(properties[currentTheme].r);
-    const cx = useMotionValue(properties[currentTheme].cx);
-    const cy = useMotionValue(properties[currentTheme].cy);
     const innerCircleRadius = useMotionValue(properties[currentTheme].innerCircleRadius);
     const opacity = useMotionValue(properties[currentTheme].opacity);
     const moonOpacity = useMotionValue(properties[currentTheme].moonOpacity);
@@ -57,8 +52,6 @@ const ThemeToggle = (props: Props) =>{
     useEffect(() => {
         animate(rotate, properties[currentTheme].rotate, properties.transition);
         animate(r, properties[currentTheme].r, properties.transition);
-        animate(cx, properties[currentTheme].cx, properties.transition);
-        animate(cy, properties[currentTheme].cy, properties.transition);
         animate(innerCircleRadius, properties[currentTheme].innerCircleRadius, properties.transition);
         animate(opacity, properties[currentTheme].opacity, properties.transition);
         animate(moonOpacity,properties[currentTheme].moonOpacity, properties.transition);
@@ -66,12 +59,35 @@ const ThemeToggle = (props: Props) =>{
     }, [currentTheme]);
 
 
+    const handleThemeToggle = async () => {
+        await document.startViewTransition(() => {
+            flushSync(() => {
+                setTheme(theme === "system" || theme === "dark" ? "light" : "dark")
+            })
+        }).ready;
+
+        document.documentElement.animate(
+            {
+                clipPath: [
+                    "polygon(0 0, -20% 0, 0 100%, 0 100%)",
+                    "polygon(0 0, 120% 0, 100% 100%, 0 100%)",
+                ],
+            },
+            {
+                duration: 1500,
+                easing: 'ease-in-out',
+                pseudoElement: '::view-transition-new(root)',
+            }
+        );
+
+    }
+
     return (
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger>
                     <div className={"hover:text-foreground flex items-center cursor-pointer"}
-                            onClick={() => setTheme(theme === "system" || theme === "dark" ? "light" : "dark")}>
+                            onClick={() => handleThemeToggle()}>
                         <motion.svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
