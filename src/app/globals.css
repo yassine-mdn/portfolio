@@ -2,19 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: rgb(242, 240, 229);
+  --foreground: rgb(16, 15, 15);
+  --muted: rgb(111, 110, 105);
+  --badge: rgb(82 82 82 / 0.1);
+  .overlay {
+    display: none;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #a3a3a3;
+  --badge: rgb(82 82 82 / 0.2);
+  .overlay {
+    display: block;
+  }
 }
+

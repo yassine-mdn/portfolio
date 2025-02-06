@@ -37,9 +37,9 @@ export default async function RootLayout(props: Props) {
     setRequestLocale(locale);
 
   return (
-      <html lang={locale}>
+      <html lang={locale} suppressHydrationWarning={true}>
       <body
-        className={`${interFont.className} antialiased mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-neutral-400 font-normal`}
+        className={`${interFont.className} antialiased mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-muted font-normal`}
       >
       <ThemeProvider
           attribute="class"
@@ -50,7 +50,7 @@ export default async function RootLayout(props: Props) {
           <NextIntlClientProvider messages={messages}>
               {props.children}
           </NextIntlClientProvider>
-          <div className={"fixed inset-0 pointer-events-none z-50 flex-none"}>
+          <div className={"overlay fixed inset-0 pointer-events-none z-50 flex-none"}>
               <div
                   className="w-full h-full bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
           </div>

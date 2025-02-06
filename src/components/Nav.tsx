@@ -58,7 +58,7 @@ const Nav = (props: Props) => {
                 {props.links.map((link: NavLinkProps, key: number) => (
                     <li key={key}>
                         <NavLink href={`#${link.href}`}
-                                 className={link.href === activeLink ? "text-neutral-200" : ""}
+                                 active={activeLink === link.href}
                                  onClick={(event) => goToLink(event, link.href)}>
                             {link.title}
                         </NavLink>

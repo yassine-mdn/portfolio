@@ -100,7 +100,7 @@ const components = {
         />
     ),
     strong: ({className, ...props}:ComponentPropsWithoutRef<"strong">) => (
-        <strong className={cn("text-neutral-200 font-medium", className)} {...props} />
+        <strong className={cn("text-foreground font-medium", className)} {...props} />
     ),
     img: ({
               className,
