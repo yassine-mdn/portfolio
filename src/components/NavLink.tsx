@@ -9,12 +9,12 @@ import {HTMLMotionProps, motion, Variants} from 'motion/react';
 
 
 const navLinkState = cva(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 underline-offset-4 hover:text-gray-200",
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10  hover:text-foreground",
     {
         variants: {
             active: {
-                false: "text-neutral-400",
-                true: "text-neutral-200",
+                false: "text-muted",
+                true: "text-foreground",
             }
         },
         defaultVariants: {

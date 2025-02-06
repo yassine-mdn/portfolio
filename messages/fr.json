@@ -2,6 +2,10 @@
   "Layout": {
     "about": "À propos",
     "experience": "Expérience",
-    "projects": "Projets"
+    "projects": "Projets",
+    "github": "Visiter Github",
+    "linkedin": "Voir le profil Linkedin",
+    "language": "Passer en anglais",
+    "theme": "Changer de thème"
   }
 }

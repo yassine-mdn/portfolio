@@ -5,6 +5,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from "@/i18n/routing";
+import {ThemeProvider} from "@/components/ThemeProvider";
 
 
 const interFont = Inter({subsets: ["latin"]});
@@ -36,16 +37,24 @@ export default async function RootLayout(props: Props) {
     setRequestLocale(locale);
 
   return (
-      <html lang={locale}>
+      <html lang={locale} suppressHydrationWarning={true}>
       <body
-        className={`${interFont.className} antialiased mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-neutral-400 font-normal`}
+        className={`${interFont.className} antialiased bg-background mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-muted font-normal`}
       >
-      <NextIntlClientProvider messages={messages}>
-          {props.children}
-      </NextIntlClientProvider>
-      <div  className={"fixed inset-0 pointer-events-none z-50 flex-none"}>
-        <div className="w-full h-full bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
-      </div>
+      <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+      >
+          <NextIntlClientProvider messages={messages}>
+              {props.children}
+          </NextIntlClientProvider>
+          <div className={"overlay fixed inset-0 pointer-events-none z-50 flex-none"}>
+              <div
+                  className="w-full h-full bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
+          </div>
+      </ThemeProvider>
       </body>
     </html>
   );
