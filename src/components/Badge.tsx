@@ -1,16 +1,19 @@
 import * as React from 'react';
+import {cn} from "@/lib/utils";
 
-type Props = {
+
+interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
     icon?: React.FC<React.SVGProps<SVGSVGElement>>,
     children: string
 }
-const Badge = (props: Props) => {
+
+const Badge: React.FC<BadgeProps> = ({ icon: Icon, children, className, ...props }) => {
     return (
-        <span className={"bg-badge rounded-md py-0.5 px-1.5 w-fit leading-none inline-flex items-center gap-0.5 align-middle border border-border"}>
-            {props.icon && (
-                    <props.icon className={"block rounded-sm"}/>
+        <span className={cn("bg-badge rounded-md py-0.5 px-1.5 w-fit leading-none inline-flex items-center gap-0.5 align-middle border border-border", className)} {...props}>
+            {Icon && (
+                    <Icon className={"block rounded-sm"}/>
             )}
-            <span className={"text-muted text-sm font-light "}>{props.children}</span>
+            <span className={"text-muted text-sm font-light "}>{children}</span>
         </span>
     );
 };

@@ -111,15 +111,15 @@ const components = {
         <img className={cn("rounded-md border", className)} alt={alt} {...props} />
     ),
     hr: ({...props}) => <hr className="my-4 md:my-8" {...props} />,
-    Angular : () => <Badge icon={AngularIcon}>Angular</Badge>,
-    Spring:() => <Badge icon={SpringIcon}>Spring</Badge>,
-    Java:() => <Badge icon={JavaIcon}>Java</Badge>,
-    React: () => <Badge icon={ReactIcon}>React</Badge>,
-    Typescript: () => <Badge icon={TypeScriptIcon}>Typescript</Badge>,
-    Python: () => <Badge icon={PythonIcon}>Python</Badge>,
-    Django: () => <Badge icon={DjangoIcon}>Django</Badge>,
-    Docker: () => <Badge icon={DockerIcon}>Docker</Badge>,
-    Postgres: () => <Badge icon={PostgreSqlIcon}>PostgreSQL</Badge>
+    Angular : () => <Badge className={"mr-2"} icon={AngularIcon}>Angular</Badge>,
+    Spring:() => <Badge className={"mr-2"} icon={SpringIcon}>Spring</Badge>,
+    Java:() => <Badge className={"mr-2"} icon={JavaIcon}>Java</Badge>,
+    React: () => <Badge className={"mr-2"} icon={ReactIcon}>React</Badge>,
+    Typescript: () => <Badge className={"mr-2"} icon={TypeScriptIcon}>Typescript</Badge>,
+    Python: () => <Badge className={"mr-2"} icon={PythonIcon}>Python</Badge>,
+    Django: () => <Badge className={"mr-2"} icon={DjangoIcon}>Django</Badge>,
+    Docker: () => <Badge className={"mr-2"} icon={DockerIcon}>Docker</Badge>,
+    Postgres: () => <Badge className={"mr-2"} icon={PostgreSqlIcon}>PostgreSQL</Badge>
 
 }
 
