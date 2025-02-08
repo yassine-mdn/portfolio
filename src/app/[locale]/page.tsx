@@ -5,11 +5,11 @@ import ExperienceSection from "@/components/ExperienceSection";
 export default function Home() {
   return (
       <Layout location={"home"}>
-          <div className="flex flex-col justify-between gap-4 lg:w-[52%]">
+          <main className="pt-24 lg:w-[52%] lg:py-24">
               <AboutSection/>
               <ExperienceSection/>
               <div id={"projects"} className={"h-screen w-full bg-blue-300"}>zone 3</div>
-          </div>
+          </main>
       </Layout>
   );
 }

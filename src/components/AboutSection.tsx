@@ -21,7 +21,7 @@ const AboutSection = async () => {
 
 
     return (
-        <div id={"about"} className={"pt-24"}>
+        <div id={"about"} className={"mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"}>
             <SectionHeader title={t("about")}/>
             <div className="px-4">
                 <Mdx code={about.body.code}/>

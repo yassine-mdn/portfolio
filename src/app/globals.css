@@ -28,6 +28,12 @@
 }
 
 
+/* debug only
+* {
+  outline: 1px solid red;
+}*/
+
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

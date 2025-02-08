@@ -23,9 +23,9 @@ const ExperienceSection = async () => {
 
     const t = await getTranslations("Layout");
     return (
-        <div className={"mt-16"}>
+        <div id={"experience"} className={"mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"}>
             <SectionHeader title={t("experience")}/>
-            <div id={"experience"} className={"flex flex-col gap-y-4"}>
+            <div  className={"flex flex-col gap-y-4"}>
                 {experiences.map((experience, key) => (
                     <Card key={key}>
                         <CardHeader>
