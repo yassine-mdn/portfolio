@@ -18,7 +18,7 @@ const components = {
     h1: ({className, ...props}:ComponentPropsWithoutRef<"h1">) => (
         <h1
             className={cn(
-                "mt-2 scroll-m-20 text-4xl font-bold tracking-tight",
+                "mt-2 scroll-m-20 text-foreground text-4xl font-bold tracking-tight",
                 className
             )}
             {...props}
@@ -27,7 +27,7 @@ const components = {
     h2: ({className, ...props}:ComponentPropsWithoutRef<"h2">) => (
         <h2
             className={cn(
-                "mt-10 scroll-m-20 border-b pb-1 text-3xl font-semibold tracking-tight first:mt-0",
+                "mt-10 scroll-m-20 border-b pb-1 text-foreground text-3xl font-semibold tracking-tight first:mt-0",
                 className
             )}
             {...props}
@@ -36,7 +36,7 @@ const components = {
     h3: ({className, ...props}:ComponentPropsWithoutRef<"h3">) => (
         <h3
             className={cn(
-                "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight",
+                "mt-8 scroll-m-20 text-foreground text-2xl font-semibold tracking-tight",
                 className
             )}
             {...props}
@@ -45,7 +45,7 @@ const components = {
     h4: ({className, ...props}:ComponentPropsWithoutRef<"h4">) => (
         <h4
             className={cn(
-                "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+                "mt-8 scroll-m-20 text-foreground text-xl font-semibold tracking-tight",
                 className
             )}
             {...props}
@@ -54,7 +54,7 @@ const components = {
     h5: ({className, ...props}:ComponentPropsWithoutRef<"h5">) => (
         <h5
             className={cn(
-                "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+                "mt-8 scroll-m-20 text-foreground text-lg font-semibold tracking-tight",
                 className
             )}
             {...props}
@@ -63,7 +63,7 @@ const components = {
     h6: ({className, ...props}:ComponentPropsWithoutRef<"h6">) => (
         <h6
             className={cn(
-                "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+                "mt-8 scroll-m-20 text-muted font-semibold tracking-tight",
                 className
             )}
             {...props}
@@ -71,7 +71,7 @@ const components = {
     ),
     a: ({className, ...props}:ComponentPropsWithoutRef<"a">) => (
         <a
-            className={cn("font-medium underline underline-offset-4", className)}
+            className={cn("font-medium text-foreground underline underline-offset-4 after:content-['_↗']", className)}
             {...props}
         />
     ),
@@ -82,13 +82,13 @@ const components = {
         />
     ),
     ul: ({className, ...props}:ComponentPropsWithoutRef<"ul">) => (
-        <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+        <ul className={cn("list-inside marker:content-['»']", className)} {...props} />
     ),
     ol: ({className, ...props}:ComponentPropsWithoutRef<"ol">) => (
-        <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+        <ol className={cn("list-inside list-decimal pl-1 ", className)} {...props} />
     ),
     li: ({className, ...props}:ComponentPropsWithoutRef<"li">) => (
-        <li className={cn("mt-2", className)} {...props} />
+        <li className={cn(" marker:text-foreground before:pl-1", className)} {...props} />
     ),
     blockquote: ({className, ...props}:ComponentPropsWithoutRef<"blockquote">) => (
         <blockquote
@@ -111,15 +111,15 @@ const components = {
         <img className={cn("rounded-md border", className)} alt={alt} {...props} />
     ),
     hr: ({...props}) => <hr className="my-4 md:my-8" {...props} />,
-    Angular : () => <Badge icon={AngularIcon}>Angular</Badge>,
-    Spring:() => <Badge icon={SpringIcon}>Spring</Badge>,
-    Java:() => <Badge icon={JavaIcon}>Java</Badge>,
-    React: () => <Badge icon={ReactIcon}>React</Badge>,
-    Typescript: () => <Badge icon={TypeScriptIcon}>Typescript</Badge>,
-    Python: () => <Badge icon={PythonIcon}>Python</Badge>,
-    Django: () => <Badge icon={DjangoIcon}>Django</Badge>,
-    Docker: () => <Badge icon={DockerIcon}>Docker</Badge>,
-    Postgres: () => <Badge icon={PostgreSqlIcon}>PostgreSQL</Badge>
+    Angular : () => <Badge className={"mr-2 mb-2"} icon={AngularIcon}>Angular</Badge>,
+    Spring:() => <Badge className={"mr-2 mb-2"} icon={SpringIcon}>Spring</Badge>,
+    Java:() => <Badge className={"mr-2 mb-2"} icon={JavaIcon}>Java</Badge>,
+    React: () => <Badge className={"mr-2 mb-2"} icon={ReactIcon}>React</Badge>,
+    Typescript: () => <Badge className={"mr-2 mb-2"} icon={TypeScriptIcon}>Typescript</Badge>,
+    Python: () => <Badge className={"mr-2 mb-2"} icon={PythonIcon}>Python</Badge>,
+    Django: () => <Badge className={"mr-2 mb-2"} icon={DjangoIcon}>Django</Badge>,
+    Docker: () => <Badge className={"mr-2 mb-2"} icon={DockerIcon}>Docker</Badge>,
+    Postgres: () => <Badge className={"mr-2 mb-2"} icon={PostgreSqlIcon}>PostgreSQL</Badge>
 
 }
 

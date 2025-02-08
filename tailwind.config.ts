@@ -14,6 +14,8 @@ export default {
         foreground: "var(--foreground)",
         muted: "var(--muted)",
         badge: "var(--badge)",
+        border: "var(--badge-border)",
+        card: "var(--card)",
       }
     },
   },
