@@ -2,18 +2,11 @@ import * as React from 'react';
 import {getLocale, getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
 import SectionHeader from "@/components/SectionHeader";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/Card"
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/Card"
 import Badge from "@/components/Badge";
-import {ReactIcon} from "redev-icons";
 import {Mdx} from "@/components/MdRendrer";
 import {allExperiences, Experience} from "contentlayer/generated";
+import {techIconsRecord} from "@/lib/utils";
 
 
 const ExperienceSection = async () => {
@@ -45,9 +38,9 @@ const ExperienceSection = async () => {
                         {experience.techStack &&(
                             <CardFooter>
                                 <div className={"flex flex-wrap gap-2"}>
-                                    {experience.techStack.map((techStack, key) => (
-                                        <Badge key={key} icon={ReactIcon}>{techStack}</Badge>
-                                    ))}
+                                    {experience.techStack.map((techStack, key) => {
+                                        return <Badge key={`${techStack}-${key}`} icon={techIconsRecord[techStack.replace(/[\n\r\t]/gm, "")]}>{techStack}</Badge>
+                                    })}
                                 </div>
                             </CardFooter>
                         )}
