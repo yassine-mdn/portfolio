@@ -11,7 +11,7 @@ type Props = {
 const Header = (props: Props) => {
     return (
         <header
-            className={"px-4 lg:px-0 lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24"}>
+            className={"lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24"}>
             <div>
                 <h1 className={"text-4xl font-bold tracking-tight text-foreground sm:text-5xl"}>Yassine Mouddene</h1>
                 <h2 className={"mt-3 text-lg font-medium tracking-tight text-foreground sm:text-xl"}>FullStack Software
