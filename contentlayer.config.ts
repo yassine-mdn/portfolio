@@ -51,7 +51,7 @@ export const Project = defineDocumentType(() => ({
     fields: {
         date: { type: 'date', required: true },
         title: { type: 'string', required: true },
-        demo: { type: 'string', required: true },
+        demo: { type: 'string', required: false },
         links: {
             type: 'list',
             of: Link,

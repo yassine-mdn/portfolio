@@ -32,9 +32,14 @@ const ProjectsSection = async () => {
                     <Card key={key}>
                         <CardHeader>
                             <CardTitle className={project.demo && "after:content-['_↗'] after:inline-block after:ml-1 after:transition-transform after:duration-200 group-hover:after:animate-floatArrow"}>
-                                <a href={project.demo} target={"_blank"} className={"after:absolute after:inset-0 after:content-['']"}>
-                                    {project.title}
-                                </a>
+                                {project.demo ? (
+                                        <a href={project.demo} target={"_blank"}
+                                           className={"after:absolute after:inset-0 after:content-['']"}
+                                        >
+                                            {project.title}
+                                        </a>) :
+                                    project.title
+                                }
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
