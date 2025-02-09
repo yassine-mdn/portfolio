@@ -17,7 +17,7 @@ export const About = defineDocumentType(() => ({
 }))
 export const Experience = defineDocumentType(() => ({
     name: 'Experience',
-    filePathPattern: `experience/**/*.md`,
+    filePathPattern: `experiences/**/*.md`,
     contentType: 'mdx',
     fields: {
         date: { type: 'date', required: true },
@@ -37,4 +37,27 @@ export const Experience = defineDocumentType(() => ({
         },
     },
 }))
-export default makeSource({contentDirPath: './content', documentTypes: [About, Experience]})
+export const Project = defineDocumentType(() => ({
+    name: 'Project',
+    filePathPattern: `projects/**/*.md`,
+    contentType: 'mdx',
+    fields: {
+        date: { type: 'date', required: true },
+        title: { type: 'string', required: true },
+        github: { type: 'string', required: true },
+        link: { type: 'string', required: false },
+        featured: {type: 'boolean', default: false},
+        techStack: {
+            type: 'list',
+            of: {type: 'string'},
+            required: false
+        }
+    },
+    computedFields: {
+        lang: {
+            type: "string",
+            resolve: (doc) => doc._raw.flattenedPath.split("/")[1],
+        },
+    },
+}))
+export default makeSource({contentDirPath: './content', documentTypes: [About, Experience,Project]})
