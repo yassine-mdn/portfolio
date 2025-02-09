@@ -28,15 +28,24 @@ const ProjectsSection = async () => {
             <SectionHeader title={t("projects")}/>
             <div  className={"flex flex-col gap-y-4"}>
                 {projects.map((project, key) => (
-                    <a key={key} href={project.link} target="_blank">
+                    <a key={key} href={project.demo} target="_blank">
                         <Card>
                             <CardHeader>
-                                <CardTitle className={"after:content-['_↗'] after:inline-block after:ml-1 after:transition-transform after:duration-200 group-hover:after:animate-floatArrow"}>
+                                <CardTitle
+                                    className={project.demo && "after:content-['_↗'] after:inline-block after:ml-1 after:transition-transform after:duration-200 group-hover:after:animate-floatArrow"}>
                                     {project.title}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <Mdx code={project.body.code}/>
+                                {project.links && (
+                                    <div className={"flex flex-wrap gap-2 mt-2"}>
+                                        {project.links.map((link, key) => {
+                                            return <a key={key} href={link.url} target="_blank"
+                                                      className={"before:content-['🔗'] hover:underline underline-offset-4"}>{link.label}</a>
+                                        })}
+                                    </div>
+                                )}
                             </CardContent>
                             {project.techStack &&(
                                 <CardFooter>

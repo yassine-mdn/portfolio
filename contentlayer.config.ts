@@ -1,4 +1,4 @@
-import {defineDocumentType, makeSource} from 'contentlayer2/source-files'
+import {defineDocumentType, defineNestedType, makeSource} from 'contentlayer2/source-files'
 
 export const About = defineDocumentType(() => ({
     name: 'About',
@@ -37,6 +37,13 @@ export const Experience = defineDocumentType(() => ({
         },
     },
 }))
+const Link = defineNestedType(() => ({
+    name: 'Link',
+    fields: {
+        label: {type: 'string', required: true},
+        url: {type: 'string', required: true},
+    }
+}))
 export const Project = defineDocumentType(() => ({
     name: 'Project',
     filePathPattern: `projects/**/*.md`,
@@ -44,8 +51,12 @@ export const Project = defineDocumentType(() => ({
     fields: {
         date: { type: 'date', required: true },
         title: { type: 'string', required: true },
-        github: { type: 'string', required: true },
-        link: { type: 'string', required: false },
+        demo: { type: 'string', required: true },
+        links: {
+            type: 'list',
+            of: Link,
+            required: false
+        },
         featured: {type: 'boolean', default: false},
         techStack: {
             type: 'list',

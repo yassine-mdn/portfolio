@@ -1,8 +1,12 @@
 ---
 date: 2023-06-01
 title: Portfolio
-github: https://github.com/yassine-mdn/portfolio
-link: https://portfolio-navy-five-71.vercel.app/
+demo: https://portfolio-navy-five-71.vercel.app/
+links:
+  - label: github
+    url: https://github.com/yassine-mdn/portfolio
+  - label: test
+    url: https://example.com/
 featured: true
 techStack:
     - Django
