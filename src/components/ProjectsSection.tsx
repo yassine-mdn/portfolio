@@ -7,6 +7,7 @@ import {Card, CardContent, CardFooter, CardHeader, CardTitle,} from "@/component
 import {Mdx} from "@/components/MdRendrer";
 import Badge from "@/components/Badge";
 import {techIconsRecord} from "@/lib/utils";
+import LinkIcon from "@/components/icons/LinkIcon";
 
 
 const ProjectsSection = async () => {
@@ -28,25 +29,32 @@ const ProjectsSection = async () => {
             <SectionHeader title={t("projects")}/>
             <div  className={"flex flex-col gap-y-4"}>
                 {projects.map((project, key) => (
-                    <a key={key} href={project.demo} target="_blank">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle
-                                    className={project.demo && "after:content-['_↗'] after:inline-block after:ml-1 after:transition-transform after:duration-200 group-hover:after:animate-floatArrow"}>
+                    <Card key={key}>
+                        <CardHeader>
+                            <CardTitle className={project.demo && "after:content-['_↗'] after:inline-block after:ml-1 after:transition-transform after:duration-200 group-hover:after:animate-floatArrow"}>
+                                <a href={project.demo} target={"_blank"} className={"after:absolute after:inset-0 after:content-['']"}>
                                     {project.title}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <Mdx code={project.body.code}/>
-                                {project.links && (
-                                    <div className={"flex flex-wrap gap-2 mt-2"}>
-                                        {project.links.map((link, key) => {
-                                            return <a key={key} href={link.url} target="_blank"
-                                                      className={"before:content-['🔗'] hover:underline underline-offset-4"}>{link.label}</a>
-                                        })}
+                                </a>
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <Mdx code={project.body.code}/>
+                            {project.links && (
+                                <div className={"flex flex-wrap gap-2 mt-2"}>
+                                    {project.links.map((link, key) => (
+                                        <a
+                                            key={key}
+                                            href={link.url}
+                                            target="_blank"
+                                            className={"hover:text-foreground inline-flex gap-1 items-center text-md z-10"}
+                                        >
+                                            <LinkIcon className={"block"}/>
+                                            {link.label}
+                                        </a>
+                                    ))}
                                     </div>
                                 )}
-                            </CardContent>
+                        </CardContent>
                             {project.techStack &&(
                                 <CardFooter>
                                     <div className={"flex flex-wrap gap-2"}>
@@ -56,8 +64,7 @@ const ProjectsSection = async () => {
                                     </div>
                                 </CardFooter>
                             )}
-                        </Card>
-                    </a>
+                    </Card>
                 ))}
 
             </div>
