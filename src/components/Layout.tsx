@@ -37,7 +37,7 @@ const Layout = async (props: Props) => {
     return (
         <div className="lg:flex lg:justify-between lg:gap-4">
             <Header links={links} jobTitle={t("jobTitle")} subTitle={t("subTitle")}>
-                <div className="mt-8 inline-flex gap-2 items-center">
+                <div className="mt-8 flex gap-2 items-center">
                     <SocialLink tooltip={t("github")} href={"https://github.com/yassine-mdn"} icon={GithubIcon}/>
                     <SocialLink tooltip={t("linkedin")} href={"https://linkedin.com/in/yassine-mouddene"}
                                 icon={LinkedinIcon}/>

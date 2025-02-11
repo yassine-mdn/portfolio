@@ -4,6 +4,7 @@ import {getLocale, getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {Mdx} from "@/components/MdRendrer";
 import SectionHeader from "@/components/SectionHeader";
+import ViewResumeButton from "@/components/ViewResumeButton";
 
 const AboutSection = async () => {
 
@@ -26,6 +27,7 @@ const AboutSection = async () => {
             <div className="lg:px-4">
                 <Mdx code={about.body.code}/>
             </div>
+            <ViewResumeButton locale={locale} text={t("cv")}/>
         </section>
     );
 };

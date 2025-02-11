@@ -22,9 +22,14 @@ export default {
           '0%, 100%': { transform: 'translate(0, 0)' },
           '50%': { transform: 'translate(4px, -4px)' },
         },
+        bgMove: {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "100% 100%" }
+        },
       },
       animation: {
         floatArrow: 'floatArrow 0.6s ease-in-out infinite',
+        bgMove: 'bgMove 600s infinite',
       },
     },
   },

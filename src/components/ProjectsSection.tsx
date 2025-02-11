@@ -31,15 +31,18 @@ const ProjectsSection = async () => {
                 {projects.map((project, key) => (
                     <Card key={key}>
                         <CardHeader>
-                            <CardTitle className={project.demo && "after:content-['_↗'] after:inline-block after:ml-1 after:transition-transform after:duration-200 group-hover:after:animate-floatArrow"}>
+                            <CardTitle className={project.demo && "relative"}>
                                 {project.demo ? (
-                                        <a href={project.demo} target={"_blank"}
-                                           className={"after:absolute after:inset-0 after:content-['']"}
-                                        >
-                                            {project.title}
-                                        </a>) :
+                                    <a
+                                        href={project.demo}
+                                        target="_blank"
+                                        className="underline-offset-4 hover:underline after:content-['_↗'] after:inline-block after:ml-1 after:transition-transform after:duration-200 group-hover:after:animate-floatArrow"
+                                    >
+                                        {project.title}
+                                    </a>
+                                ) : (
                                     project.title
-                                }
+                                )}
                             </CardTitle>
                         </CardHeader>
                         <CardContent>

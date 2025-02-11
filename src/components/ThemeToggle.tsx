@@ -42,8 +42,8 @@ const ThemeToggle = (props: Props) =>{
     return (
         <TooltipProvider>
             <Tooltip>
-                <TooltipTrigger>
-                    <div className={"hover:text-foreground flex items-center cursor-pointer relative"}
+                <TooltipTrigger asChild>
+                    <button className={"hover:text-foreground flex items-center p-1 cursor-pointers"}
                          onClick={() => handleThemeToggle()}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const ThemeToggle = (props: Props) =>{
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                className={"absolute rotate-0 scale-100 dark:-rotate-90 dark:scale-0"}
+                                className={"rotate-0 scale-100 dark:-rotate-90 dark:scale-0"}
                             >
                                 <circle stroke="currentColor" cx="12" cy="12" r={5}/>
 
@@ -86,7 +86,7 @@ const ThemeToggle = (props: Props) =>{
                             </svg>
 
                         <span className="sr-only">Toggle theme</span>
-                    </div>
+                    </button>
                 </TooltipTrigger>
                 <TooltipContent>
                     <span>{props.tooltip ?? "Change Theme"}</span>
