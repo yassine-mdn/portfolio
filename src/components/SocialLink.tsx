@@ -10,8 +10,8 @@ const SocialLink = (props: Props) => {
     return (
         <TooltipProvider>
             <Tooltip>
-                <TooltipTrigger>
-                    <a className={"hover:text-foreground text-muted"} target="_blank" href={props.href}>
+                <TooltipTrigger asChild>
+                    <a className={"hover:text-foreground text-muted p-1"} target="_blank" href={props.href}>
                         <props.icon/>
                     </a>
                 </TooltipTrigger>

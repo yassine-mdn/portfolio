@@ -32,14 +32,14 @@ const LocaleToggle = (props: Props) => {
     return (
         <TooltipProvider>
             <Tooltip>
-                <TooltipTrigger>
-                    <div className={"cursor-pointer hover:text-foreground"} onClick={changeLocale}>
+                <TooltipTrigger asChild>
+                    <button className={"cursor-pointer hover:text-foreground p-1"} onClick={changeLocale}>
                         {params.locale == "en"? (
                             <EnIcon/>
                         ): (
                             <FrIcon/>
                         )}
-                    </div>
+                    </button>
                 </TooltipTrigger>
                 <TooltipContent>
                     <span>{props.tooltip}</span>
