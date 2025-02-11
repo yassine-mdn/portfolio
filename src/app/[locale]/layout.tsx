@@ -52,7 +52,7 @@ export default async function RootLayout(props: Props) {
           </NextIntlClientProvider>
           <div className={"fixed inset-0 pointer-events-none -z-10 flex-none"}>
               <div
-                  className="absolute -z-10 inset-0 h-full w-full bg-background bg-[radial-gradient(var(--muted)_1px,transparent_1px)] bg-repeat [background-size:12px_12px] opacity-5"/>
+                  className="absolute -z-10 inset-0 h-full w-full bg-background bg-[radial-gradient(var(--muted)_1px,transparent_1px)] bg-repeat [background-size:12px_12px] motion-safe:animate-bgMove opacity-5"/>
           </div>
       </ThemeProvider>
       </body>
