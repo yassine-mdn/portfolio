@@ -16,7 +16,16 @@ export default {
         badge: "var(--badge)",
         border: "var(--badge-border)",
         card: "var(--card)",
-      }
+      },
+      keyframes: {
+        floatArrow: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(4px, -4px)' },
+        },
+      },
+      animation: {
+        floatArrow: 'floatArrow 0.6s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

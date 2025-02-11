@@ -50,10 +50,6 @@ export default async function RootLayout(props: Props) {
           <NextIntlClientProvider messages={messages}>
               {props.children}
           </NextIntlClientProvider>
-          <div className={"hidden fixed inset-0 pointer-events-none z-50 flex-none"}>
-              <div
-                  className="w-full h-full bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
-          </div>
       </ThemeProvider>
       </body>
     </html>

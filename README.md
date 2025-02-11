@@ -26,7 +26,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
  - [X] Framework Icon component (check [redev-icons]("https://github.com/yassine-mdn/redev-icons"))
  - [X] Setup Content layer for md file support
  - [X] About Section
- - [ ] Experience Cards section
- - [ ] Project cards section
+ - [X] Experience Cards section
+ - [X] Project cards section
  - [ ] Animated Dots background
  - [ ] DVD Logo Easter egg when inactive for 3 minutes
