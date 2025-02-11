@@ -39,7 +39,7 @@ export default async function RootLayout(props: Props) {
   return (
       <html lang={locale} suppressHydrationWarning={true}>
       <body
-        className={`${interFont.className} antialiased bg-background mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-muted font-normal`}
+          className={`${interFont.className} antialiased bg-background mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0 leading-7  text-muted font-normal`}
       >
       <ThemeProvider
           attribute="class"
@@ -50,8 +50,12 @@ export default async function RootLayout(props: Props) {
           <NextIntlClientProvider messages={messages}>
               {props.children}
           </NextIntlClientProvider>
+          <div className={"fixed inset-0 pointer-events-none -z-10 flex-none"}>
+              <div
+                  className="absolute -z-10 inset-0 h-full w-full bg-background bg-[radial-gradient(var(--muted)_1px,transparent_1px)] bg-repeat [background-size:12px_12px] opacity-5"/>
+          </div>
       </ThemeProvider>
       </body>
-    </html>
+      </html>
   );
 }
