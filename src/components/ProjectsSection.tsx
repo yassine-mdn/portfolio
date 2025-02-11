@@ -25,7 +25,7 @@ const ProjectsSection = async () => {
 
     const t = await getTranslations("Layout");
     return (
-        <div id={"projects"} className={"mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"}>
+        <section id={"projects"} className={"mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"}>
             <SectionHeader title={t("projects")}/>
             <div  className={"flex flex-col gap-y-4"}>
                 {projects.map((project, key) => (
@@ -73,7 +73,7 @@ const ProjectsSection = async () => {
                 ))}
 
             </div>
-        </div>
+        </section>
     );
 };
 
