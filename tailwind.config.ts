@@ -29,7 +29,7 @@ export default {
       },
       animation: {
         floatArrow: 'floatArrow 0.6s ease-in-out infinite',
-        bgMove: 'bgMove 800s infinite',
+        bgMove: 'bgMove 600s infinite',
       },
     },
   },
