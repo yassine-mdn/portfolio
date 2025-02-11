@@ -1,10 +1,10 @@
 import {type ClassValue, clsx} from "clsx"
 import {twMerge} from "tailwind-merge"
 import {
-    AngularIcon,
+    AngularIcon, Css3Icon,
     DjangoIcon,
     DockerIcon,
-    ElasticsearchIcon,
+    ElasticsearchIcon, Html5Icon,
     JavaIcon,
     JiraIcon,
     PostgreSqlIcon,
@@ -39,5 +39,7 @@ export const techIconsRecord: Record<string, React.FC<React.SVGProps<SVGSVGEleme
     "Jira": JiraIcon,
     "Vite": ViteJSIcon,
     "ScikitLearn": ScikitLearnIcon,
+    "HTML": Html5Icon,
+    "CSS": Css3Icon
 };
 
