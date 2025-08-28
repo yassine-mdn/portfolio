@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@paper-design/shaders-react": "^0.0.46",
     "@radix-ui/react-tooltip": "^1.1.8",
     "clsx": "^2.1.1",
     "contentlayer2": "^0.5.3",
