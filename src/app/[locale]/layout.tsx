@@ -51,6 +51,7 @@ export default async function RootLayout(props: Props) {
           <NextIntlClientProvider messages={messages}>
               {props.children}
           </NextIntlClientProvider>
+          {/* Light mode Warp */}
           <Warp
               proportion={0}
               softness={0.3}
@@ -62,17 +63,29 @@ export default async function RootLayout(props: Props) {
               scale={1.8}
               rotation={0}
               speed={9.2}
-              colors={[
-                  "rgb(15, 17, 21)",
-                  "hsl(255, 100%, 72%)",
-                  "rgb(15, 17, 21)"
-              ]}
-              className={"fixed inset-0 pointer-events-none -z-10 flex-none h-screen w-screen"}
+              colors={["rgb(242, 240, 229)", "hsl(215, 85%, 77%)", "rgb(242, 240, 229)"]}
+              className="fixed inset-0 pointer-events-none -z-10 h-screen w-screen dark:hidden"
           />
+
+          {/* Dark mode Warp */}
+          <Warp
+              proportion={0}
+              softness={0.3}
+              distortion={0.25}
+              swirl={0.55}
+              swirlIterations={10}
+              shape="stripes"
+              shapeScale={0.06}
+              scale={1.8}
+              rotation={0}
+              speed={9.2}
+              colors={["rgb(15, 17, 21)", "hsl(255, 100%, 72%)", "rgb(15, 17, 21)"]}
+              className="fixed inset-0 pointer-events-none -z-10 h-screen w-screen hidden dark:block"
+          />
+
           {/*<div className={"fixed inset-0 pointer-events-none -z-10 flex-none"}>
-              <div
-                  className="absolute -z-10 inset-0 h-full w-full bg-background bg-[radial-gradient(var(--muted)_1px,transparent_1px)] bg-repeat [background-size:12px_12px] motion-safe:animate-bgMove opacity-5"/>
-          </div>*/}
+                <div className="w-full h-full bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
+             </div>*/}
       </ThemeProvider>
       </body>
       </html>
