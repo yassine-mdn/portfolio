@@ -6,6 +6,7 @@ import {getMessages, setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from "@/i18n/routing";
 import {ThemeProvider} from "@/components/ThemeProvider";
+import {Warp} from "@paper-design/shaders-react";
 
 
 const interFont = Inter({subsets: ["latin"]});
@@ -50,10 +51,39 @@ export default async function RootLayout(props: Props) {
           <NextIntlClientProvider messages={messages}>
               {props.children}
           </NextIntlClientProvider>
-          <div className={"fixed inset-0 pointer-events-none -z-10 flex-none"}>
-              <div
-                  className="absolute -z-10 inset-0 h-full w-full bg-background bg-[radial-gradient(var(--muted)_1px,transparent_1px)] bg-repeat [background-size:12px_12px] motion-safe:animate-bgMove opacity-5"/>
-          </div>
+          {/* Light mode Warp */}
+          <Warp
+              proportion={0}
+              softness={0.3}
+              distortion={0.25}
+              swirl={0.55}
+              swirlIterations={10}
+              shape="stripes"
+              shapeScale={0.06}
+              scale={1.8}
+              rotation={0}
+              speed={9.2}
+              colors={["hsl(51,33%,92%)", "hsl(215, 85%, 77%)", "hsl(51,33%,92%)"]}
+              className="fixed inset-0 pointer-events-none -z-10 h-screen w-screen dark:hidden"
+          />
+
+          {/* Dark mode Warp */}
+          <Warp
+              proportion={0}
+              softness={0.3}
+              distortion={0.25}
+              swirl={0.55}
+              swirlIterations={10}
+              shape="stripes"
+              shapeScale={0.06}
+              scale={1.8}
+              rotation={0}
+              speed={9.2}
+              colors={["hsl(220,17%,7%)", "hsl(255, 100%, 72%)", "hsl(220,17%,7%)"]}
+              className="fixed inset-0 pointer-events-none -z-10 h-screen w-screen hidden dark:block"
+          />
+          <div className="fixed inset-0 -z-10 w-screen h-screen bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
+
       </ThemeProvider>
       </body>
       </html>

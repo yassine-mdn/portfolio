@@ -5,9 +5,15 @@ import {ComponentPropsWithoutRef} from "react";
 import Badge from "@/components/Badge";
 import {
     AngularIcon,
+    ArgoCDIcon,
     DjangoIcon,
     DockerIcon,
-    JavaIcon, PostgreSqlIcon,
+    JavaIcon,
+    JenkinsIcon,
+    LangchainIcon,
+    NextJsIcon,
+    OllamaIcon,
+    PostgreSqlIcon,
     PythonIcon,
     ReactIcon,
     SpringIcon,
@@ -119,7 +125,12 @@ const components = {
     Python: () => <Badge className={"mr-2 mb-2"} icon={PythonIcon}>Python</Badge>,
     Django: () => <Badge className={"mr-2 mb-2"} icon={DjangoIcon}>Django</Badge>,
     Docker: () => <Badge className={"mr-2 mb-2"} icon={DockerIcon}>Docker</Badge>,
-    Postgres: () => <Badge className={"mr-2 mb-2"} icon={PostgreSqlIcon}>PostgreSQL</Badge>
+    Postgres: () => <Badge className={"mr-2 mb-2"} icon={PostgreSqlIcon}>PostgreSQL</Badge>,
+    Jenkins: () => <Badge className={"mr-2 mb-2"} icon={JenkinsIcon}>Jenkins</Badge>,
+    NextJs: () => <Badge className={"mr-2 mb-2"} icon={NextJsIcon}>Next.js</Badge>,
+    Argo: () => <Badge className={"mr-2 mb-2"} icon={ArgoCDIcon}>Argo CD</Badge>,
+    Langchain: () => <Badge className={"mr-2 mb-2"} icon={LangchainIcon}>Langchain</Badge>,
+    Ollama: () => <Badge className={"mr-2 mb-2"} icon={OllamaIcon}>Ollama</Badge>,
 
 }
 

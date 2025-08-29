@@ -13,27 +13,40 @@ type Props = {
 const Nav = (props: Props) => {
 
     const [activeLink, setActiveLink] = useState<string | null>(null);
-
+    const [isScrolling, setIsScrolling] = useState(false);
+    const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
 
     const goToLink = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
         scrollTo(href);
-    }
+    };
 
     const scrollTo = (href: string) => {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+
         setActiveLink(href);
+        setIsScrolling(true);
+
         const el = document.getElementById(href);
         if (el) {
-            el.scrollIntoView({
-                behavior: "smooth",
-            });
+            el.scrollIntoView({ behavior: "smooth" });
             el.focus();
+
+            const timeout = setTimeout(() => {
+                setIsScrolling(false);
+            }, 800);
+
+            setScrollTimeout(timeout);
         }
-    }
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
+                if (isScrolling) return;
+
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         setActiveLink(entry.target.id);
@@ -41,7 +54,7 @@ const Nav = (props: Props) => {
                     }
                 });
             },
-            {threshold: 0.8}
+            { threshold: 0.8 }
         );
 
         props.links.forEach((link) => {
@@ -49,20 +62,25 @@ const Nav = (props: Props) => {
             if (section) observer.observe(section);
         });
 
-        return () => observer.disconnect();
-    }, [props.links]);
+        return () => {
+            observer.disconnect();
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+        }
+    }, [props.links, isScrolling, scrollTimeout]);
+
 
     return (
         <nav className={"nav hidden lg:block"}>
             <ul className={"mt-16 w-max"}>
                 {props.links.map((link: NavLinkProps, key: number) => (
-                    <li key={key}>
-                        <NavLink href={`#${link.href}`}
+                        <NavLink key={key} href={`#${link.href}`}
                                  active={activeLink === link.href}
                                  onClick={(event) => goToLink(event, link.href)}>
                             {link.title}
                         </NavLink>
-                    </li>
+
                 ))}
             </ul>
         </nav>

@@ -12,6 +12,11 @@ import {
     ReactIcon,
     RedisIcon, ScikitLearnIcon,
     SpringIcon,
+    JenkinsIcon,
+    LangchainIcon,
+    NextJsIcon,
+    OllamaIcon,
+    ArgoCDIcon,
     TypeScriptIcon,
     ViteJSIcon
 } from "redev-icons";
@@ -40,6 +45,11 @@ export const techIconsRecord: Record<string, React.FC<React.SVGProps<SVGSVGEleme
     "Vite": ViteJSIcon,
     "ScikitLearn": ScikitLearnIcon,
     "HTML": Html5Icon,
-    "CSS": Css3Icon
+    "CSS": Css3Icon,
+    "NextJs": NextJsIcon,
+    "Argo": ArgoCDIcon,
+    "Langchain": LangchainIcon,
+    "Ollama": OllamaIcon,
+    "Jenkins": JenkinsIcon,
 };
 

@@ -4,31 +4,33 @@
 
 
 :root {
-  --background: rgb(242, 240, 229);
-  --foreground: rgb(16, 15, 15);
-  --muted: rgb(111, 110, 105);
-  --badge: rgb(225, 224, 214);
-  --badge-border: rgb(206, 205, 195);
-  --card: rgb(230, 228, 217);
-  --pc: rgb(242, 240, 229);
-  --p: rgb(111, 110, 105);
+  --background: hsl(51, 33%, 92%);
+  --foreground: hsl(0, 3%, 6%);
+  --muted: hsl(50, 3%, 42%);
+  --badge: hsl(55, 15%, 86%);
+  --badge-border: hsl(55, 10%, 79%);
+  --card: hsl(51, 21%, 88%, 50%);
+  --pc: hsl(51, 33%, 92%);
+  --p: hsl(50, 3%, 42%);
   .overlay {
     display: none;
   }
+  --accent: hsl(215, 85%, 77%);
 }
 
 .dark {
-  --background: rgb(15, 17, 21);
-  --foreground: #ededed;
-  --muted: #a3a3a3;
-  --badge: rgb(20, 23, 28);
-  --badge-border: rgb(43, 50, 61);
-  --card: rgb(20, 23, 28);
-  --pc: rgb(15, 17, 21);
-  --p:  rgb(242, 240, 229);
+  --background: hsla(220, 17%, 7%, 1);
+  --foreground: hsla(0, 0%, 93%, 1);
+  --muted: hsla(0, 0%, 64%, 1);
+  --badge: hsla(218, 17%, 100%, 0.021);
+  --card: hsla(218, 17%, 100%, 0.021);
+  --badge-border: hsla(217, 17%, 100%, 0.14);
+  --pc: hsla(220, 17%, 7%, 1);
+  --p: hsla(51, 33%, 92%, 1);
   .overlay {
     display: block;
   }
+  --accent: hsl(255, 100%, 72%);
 }
 
 
