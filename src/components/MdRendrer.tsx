@@ -130,7 +130,7 @@ const components = {
     NextJs: () => <Badge className={"mr-2 mb-2"} icon={NextJsIcon}>Next.js</Badge>,
     Argo: () => <Badge className={"mr-2 mb-2"} icon={ArgoCDIcon}>Argo CD</Badge>,
     Langchain: () => <Badge className={"mr-2 mb-2"} icon={LangchainIcon}>Langchain</Badge>,
-    Ollama: () => <Badge className={"mr-2 mb-2"} icon={OllamaIcon}>Ollama</Badge>
+    Ollama: () => <Badge className={"mr-2 mb-2"} icon={OllamaIcon}>Ollama</Badge>,
 
 }
 
