@@ -1,9 +1,8 @@
 "use client"
 
 import * as React from 'react';
-import {useState} from 'react';
 import {cn} from '@/lib/utils';
-import {HTMLMotionProps, motion, Variants} from 'motion/react';
+import {AnimatePresence, HTMLMotionProps, motion} from 'motion/react';
 
 
 interface NavLinkProps
@@ -11,52 +10,33 @@ interface NavLinkProps
     active: boolean;
 }
 
-const navAnimation: Variants = {
-    rest: {
-        y: 0,
-    },
-    hover: {
-        y: -30,
-        transition: {
-            duration: 0.3,
-            ease: [0.6, 0.01, 0.05, 0.95],
-            type: "tween",
-        }
-    }
-}
 
-const navAnimationTwo: Variants = {
-    rest: {
-        y: 30,
-    },
-    hover: {
-        y: 0,
-        transition: {
-            duration: 0.3,
-            ease: [0.6, 0.01, 0.05, 0.95],
-            type: "tween",
-        }
-    }
-}
-
-const defaultStyle = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-8  hover:text-foreground";
+const defaultStyle = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium hover:text-foreground origin-[0]";
 
 const NavLink: React.FC<NavLinkProps> = ({active, className, ...props}) => {
 
-    const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <motion.div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
-                    className={"relative items-start overflow-hidden flex flex-col"} initial={"rest"} animate={"hover"}>
-            <motion.a className={cn(defaultStyle, active ? "text-foreground" : "text-muted", className)} {...props}
-                      variants={navAnimation} animate={isHovered ? "hover" : "rest"}
+        <li  className="relative list-none flex flex-col items-start pl-2">
+            <motion.a
+                {...props}
+                className={cn(
+                    defaultStyle,
+                    active ? "text-foreground" : "text-muted",
+                    className
+                )}
+              initial={false}
             />
-            <div className={"absolute top-0 left-0"}>
-                <motion.a className={cn(defaultStyle, active ? "text-foreground" : "text-muted", className)} {...props}
-                          variants={navAnimationTwo} animate={isHovered ? "hover" : "rest"}
-                />
-            </div>
-        </motion.div>
+            <AnimatePresence>
+                {active && (
+                    <motion.div
+                        layoutId="underline"
+                        className="h-3 w-0.5 bg-foreground rounded absolute left-0 top-1"
+                        transition={{ type: "spring", stiffness: 500, damping: 50 }}
+                    />
+                )}
+            </AnimatePresence>
+        </li>
     );
 };
 
