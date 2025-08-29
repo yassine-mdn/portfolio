@@ -63,7 +63,7 @@ export default async function RootLayout(props: Props) {
               scale={1.8}
               rotation={0}
               speed={9.2}
-              colors={["rgb(242, 240, 229)", "hsl(215, 85%, 77%)", "rgb(242, 240, 229)"]}
+              colors={["hsl(51,33%,92%)", "hsl(215, 85%, 77%)", "hsl(51,33%,92%)"]}
               className="fixed inset-0 pointer-events-none -z-10 h-screen w-screen dark:hidden"
           />
 
@@ -79,7 +79,7 @@ export default async function RootLayout(props: Props) {
               scale={1.8}
               rotation={0}
               speed={9.2}
-              colors={["rgb(15, 17, 21)", "hsl(255, 100%, 72%)", "rgb(15, 17, 21)"]}
+              colors={["hsl(220,17%,7%)", "hsl(255, 100%, 72%)", "hsl(220,17%,7%)"]}
               className="fixed inset-0 pointer-events-none -z-10 h-screen w-screen hidden dark:block"
           />
           <div className="fixed inset-0 -z-10 w-screen h-screen bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
