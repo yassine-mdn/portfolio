@@ -14,6 +14,7 @@ const Nav = (props: Props) => {
 
     const [activeLink, setActiveLink] = useState<string | null>(null);
     const [isScrolling, setIsScrolling] = useState(false);
+    const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
 
     const goToLink = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
@@ -21,6 +22,10 @@ const Nav = (props: Props) => {
     };
 
     const scrollTo = (href: string) => {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+
         setActiveLink(href);
         setIsScrolling(true);
 
@@ -33,7 +38,7 @@ const Nav = (props: Props) => {
                 setIsScrolling(false);
             }, 800);
 
-            return () => clearTimeout(timeout);
+            setScrollTimeout(timeout);
         }
     };
 
