@@ -82,10 +82,8 @@ export default async function RootLayout(props: Props) {
               colors={["rgb(15, 17, 21)", "hsl(255, 100%, 72%)", "rgb(15, 17, 21)"]}
               className="fixed inset-0 pointer-events-none -z-10 h-screen w-screen hidden dark:block"
           />
+          <div className="fixed inset-0 -z-10 w-screen h-screen bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
 
-          {/*<div className={"fixed inset-0 pointer-events-none -z-10 flex-none"}>
-                <div className="w-full h-full bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] opacity-5  bg-repeat"/>
-             </div>*/}
       </ThemeProvider>
       </body>
       </html>

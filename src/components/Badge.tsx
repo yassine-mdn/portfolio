@@ -9,7 +9,7 @@ interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 const Badge: React.FC<BadgeProps> = ({ icon: Icon, children, className, ...props }) => {
     return (
-        <span className={cn("bg-badge rounded-md py-0.5 px-1.5 w-fit leading-none inline-flex items-center gap-0.5 align-middle border border-border", className)} {...props}>
+        <span className={cn("bg-badge backdrop-blur-lg rounded-md py-0.5 px-1.5 w-fit leading-none inline-flex items-center gap-0.5 align-middle border border-border", className)} {...props}>
             {Icon && (
                     <Icon className={"block rounded-sm"}/>
             )}
