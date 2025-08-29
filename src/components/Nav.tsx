@@ -62,8 +62,13 @@ const Nav = (props: Props) => {
             if (section) observer.observe(section);
         });
 
-        return () => observer.disconnect();
-    }, [props.links, isScrolling]);
+        return () => {
+            observer.disconnect();
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+        }
+    }, [props.links, isScrolling, scrollTimeout]);
 
 
     return (
