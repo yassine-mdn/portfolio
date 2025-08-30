@@ -43,7 +43,7 @@ const ThemeToggle = (props: Props) =>{
         <TooltipProvider>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <button className={"hover:text-foreground flex items-center p-1 cursor-pointers"}
+                    <button className={"hover:text-foreground flex items-center p-1 s"}
                          onClick={() => handleThemeToggle()}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
