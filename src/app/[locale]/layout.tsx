@@ -53,7 +53,7 @@ export default async function RootLayout(props: Props) {
             <NextIntlClientProvider messages={messages}>
                 {props.children}
             </NextIntlClientProvider>
-            {/*<Warp
+            <Warp
                 proportion={0}
                 softness={0.3}
                 distortion={0.25}
@@ -80,7 +80,7 @@ export default async function RootLayout(props: Props) {
                 speed={9.2}
                 colors={["hsl(220,17%,7%)", "hsl(255, 100%, 72%)", "hsl(220,17%,7%)"]}
                 className="fixed inset-0 pointer-events-none -z-10 h-screen w-screen hidden dark:block"
-            />*/}
+            />
         </ThemeProvider>
         </body>
         </html>
