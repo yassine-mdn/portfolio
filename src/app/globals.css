@@ -50,3 +50,7 @@
   animation: none;
   mix-blend-mode: normal;
 }
+
+a, button {
+  cursor: none !important;
+}
